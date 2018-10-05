@@ -10,9 +10,9 @@ class CppAnalyzerTest {
 	}
 
 	@Test
-	void test() {
+	public static void test() {
 		CppAnalyzer c=new CppAnalyzer();
-		//c.analyze("TestFiles/hello.cpp");
+		c.analyze("TestFiles/hello.cpp");
 
 	}
 
@@ -30,6 +30,11 @@ class CppAnalyzerTest {
 		c.analyze("TestFiles/sqlExample.cpp");
 		
 		
+	}
+	
+	public static void main (String args[])
+	{
+		test();
 	}
 	
 
