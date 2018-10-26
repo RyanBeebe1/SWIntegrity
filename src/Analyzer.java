@@ -6,25 +6,33 @@
  * @author Jamie Tyler Walder
  */
 
+/**
+ * This abstract class handles file operations limited to
+ * opening and parsing files, and analyzing file contents
+ * for vulnerabilities.
+ *
+ * @author Jamie Tyler Walder
+ */
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
 public abstract class Analyzer {
-	
+
 	private BufferedReader br;
-	protected String jarPath = "file://c:\\Users\\Joe\\IdeaProjects\\SWIntegrity\\vulnerabilities\\";
-	
-	protected String configPath=Analyzer.class.getResource("config.csv").getPath();
-	
+	protected static String jarPath = "file://./vulnerabilities.jar";
+
+	protected static String configPath=Analyzer.class.getResource("config.csv").getPath();
+
 	/**
 	 * Open a file with a given file name and return its contents
 	 * @param fileName The file to open
 	 * @return The contents of the file
 	 */
 	public String openFile(String fileName) {
-		
+
 		try {
 			//use buffered reader to open the file
 			br = new BufferedReader(new FileReader(fileName));
@@ -36,11 +44,11 @@ public abstract class Analyzer {
 			while ((sCurrentLine = br.readLine()) != null) {
 				file += sCurrentLine + "\n";
 			}
-			
+
 			return file;
-			
+
 		}
-		
+
 		catch(FileNotFoundException e) {
 			//Thrown by BufferedReader
 			//if there was an error opening a file, notify the user
@@ -53,7 +61,7 @@ public abstract class Analyzer {
 			return null;
 		}
 	}
-	
+
 	//These methods will be overwritten by classes which extend the Analyzer
 	abstract public void parse(String filename);
 	abstract protected void analyze(String filename);
