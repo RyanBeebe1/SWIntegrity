@@ -37,6 +37,7 @@ public class CppAnalyzer extends Analyzer
 	private Map<Integer,Integer> symbolToLine;
 	private List<Pointer> pointersList;
 
+
 	/**
 	 * Constructor which creates lists necessary for collection of data.
 	 */
@@ -563,7 +564,7 @@ public class CppAnalyzer extends Analyzer
 		//Create a new URL class using the jarPath variable stored in Analyzer
 		URL temp = new URL(jarPath);
 		URL[] jar = {temp};
-		
+
 		//Load the jar file and find the correct vulnerability within this jar
 		URLClassLoader jarLoader = new URLClassLoader(jar);
 		Class c = jarLoader.loadClass(className);
