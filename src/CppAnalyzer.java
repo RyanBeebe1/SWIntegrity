@@ -36,6 +36,7 @@ public class CppAnalyzer extends Analyzer
 	//this map keeps track of which significant symbol(non comments) reside on which lines
 	private Map<Integer,Integer> symbolToLine;
 	private List<Pointer> pointersList;
+	private HashMap<Integer, String> numToLine;
 
 
 	/**
@@ -44,6 +45,7 @@ public class CppAnalyzer extends Analyzer
 	public CppAnalyzer()
 	{
 		super();
+		numToLine = new HashMap<>();
 		//Instantiate variables
 		variablesList = new LinkedList<Variable>();
 		keywords = new HashSet<>();
@@ -73,6 +75,18 @@ public class CppAnalyzer extends Analyzer
 	@Override
 	public void parse(String filename) 
 	{
+		String line = "";
+		int linenum = 1;
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(filename));
+			while ((line = br.readLine()) != null) {
+				numToLine.put(linenum, line);
+				linenum++;
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 		//clear all gathered data
 		clearAll();
 		String file = openFile(filename);
@@ -130,7 +144,10 @@ public class CppAnalyzer extends Analyzer
 		
 		//Can use http://en.cppreference.com/w/cpp/keyword as a reference
 	}
-	
+
+	public HashMap<Integer,String> getNumToLine() {
+		return numToLine;
+	}
 	/**
 	 * Scans files and pulls out all literals 
 	 * @param file file contents to be scanned
