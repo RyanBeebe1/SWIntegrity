@@ -25,8 +25,10 @@ public class SIT {
 	 * If no arguments are entered, all files will be selected by default.
 	 */
 	public static void main(String[] args) {
+		long startTime = System.currentTimeMillis();
 		Input input = new Input();
 		input.processInput(args);
+		System.out.println("Runtime in seconds: " + (System.currentTimeMillis() - startTime)/1000);
 	}
 
 
