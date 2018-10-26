@@ -38,6 +38,7 @@ public class AdaAnalyzer extends Analyzer{
 	Set<String> keyWords;
 	Set<String> accessTypes;
 	String rawCode;
+    public HashMap<Integer, String> numToLine; //maps line number to string representation of line
 	//String fileContents;
 	
 	
@@ -47,7 +48,7 @@ public class AdaAnalyzer extends Analyzer{
 	 */
 	public AdaAnalyzer() {
 		super();
-		
+		this.numToLine = new HashMap<>();
 		this.variables = new HashMap<>();
 		this.literals = new LinkedList<>();
 		this.symbolToLine = new HashMap<>();
@@ -87,6 +88,7 @@ public class AdaAnalyzer extends Analyzer{
 		
 	}
 
+
 	/**
 	 * Override Analyzer.parse
 	 * Opens a file and parses it for variable names
@@ -94,7 +96,18 @@ public class AdaAnalyzer extends Analyzer{
 	 */
 	@Override
 	public void parse(String filename) {
-		
+		String line = "";
+		int linenum = 1;
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(filename));
+			while ((line = br.readLine()) != null) {
+				numToLine.put(linenum, line);
+				linenum++;
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 		clearAll();
 		String fileContents=openFile(filename);
 		rawCode = fileContents;
@@ -381,7 +394,7 @@ public class AdaAnalyzer extends Analyzer{
 		//Create a new URL class using the jarPath variable stored in Analyzer
 		URL temp = new URL(jarPath);
 		URL[] jar = {temp};
-		
+
 		//Load the jar file and find the correct vulnerability within this jar
 		URLClassLoader jarLoader = new URLClassLoader(jar);
 		Class c = jarLoader.loadClass(className);
@@ -421,7 +434,7 @@ public class AdaAnalyzer extends Analyzer{
 			
 			e.printStackTrace();
 		} catch (NoSuchMethodException e) {
-			
+
 			e.printStackTrace();
 		} catch (SecurityException e) {
 			
