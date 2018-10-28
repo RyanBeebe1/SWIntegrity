@@ -5,7 +5,7 @@
 int main()
 {
     int *ptr = new int[10];
- 
+    int *ptr2 = &ptr;
     // After below free call, ptr becomes a 
     // dangling pointer
     delete ptr; 
