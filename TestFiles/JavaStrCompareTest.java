@@ -28,5 +28,12 @@ public class JavaStrCompareTest {
         if (j == "yo") {
             //do something
         }
+
+        int i = 0;
+        int k = 0;
+
+        if (k == i) {
+            //do something
+        }
     }
 }
