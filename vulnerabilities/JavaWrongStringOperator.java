@@ -1,15 +1,19 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-
+/**
+ * This vulnerability searches for incorrect usage when comparing strings in Java source code.
+ * @author Joe Mcilvaine
+ */
 public class JavaWrongStringOperator {
     public List<Integer> run(Analyzer ana) {
         JavaAnalyzer jana = (JavaAnalyzer) ana;
-        List<Integer> locs = new ArrayList<>();
-        for (JavaAnalyzer.Variable v : jana.getVariables()) {
-            if (v.getType().equals("String")) {
-                for (HashMap.Entry<Integer, String> k : jana.getLineToLine().entrySet()) {
-                    if (k.getValue().replaceAll("\\s","").contains(v.getName()+"==")
+        List<Integer> locs = new ArrayList<>(); //line number of possible vulnerability
+        for (JavaAnalyzer.Variable v : jana.getVariables()) { //search through each variable
+            if (v.getType().equals("String")) { //see if the variable is a string
+                for (HashMap.Entry<Integer, String> k : jana.getLineToLine().entrySet()) { //go through each line of source code
+                    if (k.getValue().replaceAll("\\s","").contains(v.getName()+"==") //check for improper comparison
                             || k.getValue().replaceAll("\\s", "").contains("=="+v.getName())
                             || k.getValue().replaceAll("\\s","").contains(v.getName()+"!=")
                             || k.getValue().replaceAll("\\s", "").contains("!="+v.getName())) {
@@ -19,6 +23,7 @@ public class JavaWrongStringOperator {
                 }
             }
         }
+        Collections.sort(locs);
         return locs;
     }
 
