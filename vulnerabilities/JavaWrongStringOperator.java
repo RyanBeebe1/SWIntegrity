@@ -6,7 +6,7 @@ import java.util.List;
  * This vulnerability searches for incorrect usage when comparing strings in Java source code.
  * @author Joe Mcilvaine
  */
-public class JavaWrongStringOperator {
+public class JavaWrongStringOperator implements Vulnerability {
     public List<Integer> run(Analyzer ana) {
         JavaAnalyzer jana = (JavaAnalyzer) ana;
         List<Integer> locs = new ArrayList<>(); //line number of possible vulnerability
