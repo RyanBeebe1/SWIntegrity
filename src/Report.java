@@ -9,7 +9,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Map.Entry;
 
 /**
@@ -21,7 +20,7 @@ public class Report {
 	
 	private static final Report instance = new Report();
 	static List<Info> information = new LinkedList<Info>();
-	static List<String> files = new LinkedList<String>();
+	static List<String> files = new LinkedList<>();
 	
 	private Report()
 	{

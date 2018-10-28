@@ -6,8 +6,6 @@
  * @author Jamie Tyler Walder
  */
 
-import com.sun.org.apache.xpath.internal.operations.VariableSafeAbsRef;
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -26,7 +24,6 @@ import java.util.HashSet;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import java.util.HashMap;
-import java.util.Map;
 
 public class JavaAnalyzer extends Analyzer {
 	private Set<Variable> variablesList;

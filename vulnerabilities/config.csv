@@ -9,3 +9,4 @@ CWE-190,Integer Overflow or Wraparound,C++,Low,Validate the input before assigni
 CWE-190,Integer Overflow,JAVA,Low,Ensure that values being assigned are checked against the maximum or minimum value of the type to which they are being assigned,JavaIntegerOverflowVulnerability
 CWE-190,Integer Overflow,ADA,Low,Make sure values assigned are within bounds of assigned type and be aware of loops that may run infinitely causing overflow.,AdaIntegerOverflowVulnerability
 CWE-134,Externally Controlled Format String,C++,High,Avoid formatted prints,CppExternallyControlledFormatStringVulnerability
+CWE-597,Use of Wrong Operator in String comparison,JAVA,Low, Use .equals() instead of ==,JavaWrongStringOperator
