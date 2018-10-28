@@ -25,5 +25,8 @@ public class JavaStrCompareTest {
         if (a == "hghj") {
 
         }
+        if (j == "yo") {
+            //do something
+        }
     }
 }
