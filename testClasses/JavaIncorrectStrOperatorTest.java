@@ -25,5 +25,6 @@ public class JavaIncorrectStrOperatorTest {
         assertTrue(locs.contains(14));
         assertTrue(!locs.contains(21));
         assertTrue(locs.contains(28));
+        assertTrue(!locs.contains(35));
     }
 }
