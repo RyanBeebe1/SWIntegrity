@@ -5,7 +5,7 @@ stack[SIZE];
 
 void push(int i) {
 p1++;
-if(p1==(tos+SIZE)) {
+if(p1=(tos+SIZE)) {
 
 // Print stack overflow error message and exit
 }
