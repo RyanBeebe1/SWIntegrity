@@ -646,21 +646,52 @@ public class CppAnalyzer extends Analyzer
 		}
 	}
 	
+	/**
+	 * Returns all of the variables in the given file including their line number, scope, type, and assignments 
+	 * @return Map with variable scope as key and variable as value
+	 */
 	public List<Variable> getVariables() {
 		return variablesList;
 	}
+	
+	/**
+	 *  returns a set of all the keywords used within the current file
+	 *  @return A set contains all the keywords used within the current file
+	 */
 	public Set<String> getKeywords() {
 		return keywords;
 	}
+	
+	/**
+	 * returns a list of literals within the current file
+	 * @return string list of literals within current file
+	 */
 	public List<String> getLiterals() {
 		return literals;
 	}
+	
+	/**
+	 * returns the raw unedited string of the file
+	 * @return returns the file contents in an unedited string
+	 */
 	public String getFileContents() {
 		return fileContents;
 	}
+	
+	/**
+	 * returns an a map of the line numbers where each symbol appears. each symbol is an integer. Ex: Line
+	 * 1 contains symbols 1-15. Used to assign line numbers to variables.
+	 * 
+	 *  @return a Map where the key is the symbol number and the value is the line
+	 */
 	public Map<Integer, Integer> getSymbolToLine() {
 		return symbolToLine;
 	}
+	
+	/**
+	 * returns a list of the pointers contained within the current file
+	 * @return List of pointers within the given file
+	 */
 	public List<Pointer> getPointersList() {
 		return pointersList;
 	}
@@ -687,33 +718,84 @@ public class CppAnalyzer extends Analyzer
 			this.lineNumber = line;
 			assignments=new HashMap<>();
 		}
+		
+		/**
+		 * returns the name of the variable
+		 * @return the name of the variable
+		 */
 		public String getName() {
 			return name;
 		}
+		
+		/**
+		 * changes the name of the variable to the passed string
+		 * @param name
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}
+		
+		/**
+		 * returns the type of the variable
+		 * @return the type of the variable
+		 */
 		public String getType() {
 			return type;
 		}
+		
+		/**
+		 * changes the type of the variable to the passed string
+		 * @param type
+		 */
 		public void setType(String type) {
 			this.type = type;
 		}
+		
+		/**
+		 * returns the scope of the current variable
+		 * @return the scope of the current variable
+		 */
 		public String getScope() {
 			return scope;
 		}
+		
+		/**
+		 * changes the scope of the variable to the given string
+		 * @param scope
+		 */
 		public void setScope(String scope) {
 			this.scope = scope;
 		}
+		
+		/**
+		 * returns the line number of the variables initial declaration. Does NOT return the line number of all
+		 * assignments.
+		 * @return the line number of the variable declaration
+		 */
 		public int getLine() {
 			return lineNumber;
 		}
+		
+		/**
+		 * sets the line number of the variable declaration to the given line
+		 * @param line
+		 */
 		public void setLine(int line) {
 			this.lineNumber = line;
 		}
+		
+		/**
+		 * returns the list of assignments in a map.
+		 * @return A map where the key is the line number and the string is the assignment
+		 */
 		public Map<Integer, String> getAssignments() {
 			return assignments;
 		}
+		
+		/**
+		 * sets the assignments to the given Map
+		 * @param assignments
+		 */
 		public void setAssignments(Map<Integer, String> assignments) {
 			this.assignments = assignments;
 		}

@@ -457,25 +457,64 @@ public class AdaAnalyzer extends Analyzer{
 		}
 	}
 	
-	
+	/**
+	 * Returns all of the variables in the given file including their line number, scope, type, and assignments 
+	 * @return Map with variable scope as key and variable as value
+	 */
 	public Map<String, Variable> getVariables() {
 		return variables;
 	}
+	/**
+	 * Returns all of the variables in the given file including their line number, scope, type, and assignments
+	 * @return Map with variable scope as key and external variable as value
+	 */
 	public Map<String, Variable> getExternalVariables() {
 		return externalVariables;
 	}
+	/**
+	 * returns the list of functions that came from an external source within the current file
+	 * @return List of strings where the strings are external function names
+	 */
 	public List<String> getExternalFunctionCalls() {
 		return externalFunctionCalls;
 	}
+	/**
+	 * returns a list of literals within the current file
+	 * @return string list of literals within current file
+	 */
 	public List<String> getLiterals() {
 		return literals;
 	}
+	/**
+	 * returns an a map of the line numbers where each symbol appears. each symbol is an integer. Ex: Line
+	 * 1 contains symbols 1-15. Used to assign line numbers to variables.
+	 * 
+	 *  @return a Map where the key is the symbol number and the value is the line
+	 */
 	public Map<Integer, Integer> getSymbolToLine() {
 		return symbolToLine;
 	}
+	/**
+	 * returns a Set of special symbols used. Special symbols are: 
+	 * :  ;  )  (  +  -  /  \\  *  \\\  \n  \t  \r  =  .  \ ,
+	 * 
+	 * @return A set of all the special symbols used in the current file
+	 */
 	public Set<String> getSpecialSymbols() {
 		return specialSymbols;
 	}
+	/**
+	 *  returns a set of all the keywords used within the current file
+	 *  keywords: abort, else , new, return, abs, elsif, not, reverse,
+				 abstract, end, null, accept, entry, select, access, exception, of,
+				 separate, aliased, exit, or, subtype , all, others, synchronized, and,
+				 for, out, array, function, overriding, tagged, at, task, generic, package,
+				 terminate, begin, goto, pragma, then, body, private, type, if, procedure,
+				 case, in, protected, until, constant, interface, use, is, raise, declare,
+				 range, when, delay, limited, record, while, delta, loop, rem, with, digits,
+				renames, do, mod, requeue, xor
+	 *  @return A set contains all the keywords used within the current file
+	 */
 	public Set<String> getKeyWords() {
 		return keyWords;
 	}
@@ -502,39 +541,80 @@ public class AdaAnalyzer extends Analyzer{
 			this.symbolNumber = line;
 			assignments=new HashMap<>();
 		}
+		/**
+		 * returns the name of the variable
+		 * @return the name of the variable
+		 */
 		public String getName() {
 			return name;
 		}
+		/**
+		 * changes the name of the variable to the passed string
+		 * @param name
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}
+		/**
+		 * returns the type of the variable
+		 * @return the type of the variable
+		 */
 		public String getType() {
 			return type;
 		}
+		/**
+		 * changes the type of the variable to the passed string
+		 * @param type
+		 */
 		public void setType(String type) {
 			this.type = type;
 		}
+		/**
+		 * returns the scope of the current variable
+		 * @return the scope of the current variable
+		 */
 		public String getScope() {
 			return scope;
 		}
+		/**
+		 * changes the scope of the variable to the given string
+		 * @param scope
+		 */
 		public void setScope(String scope) {
 			this.scope = scope;
 		}
+		/**
+		 * returns the line number of the variables initial declaration. Does NOT return the line number of all
+		 * assignments.
+		 * @return the line number of the variable declaration
+		 */
 		public int getLine() {
 			return symbolNumber;
 		}
+		/**
+		 * sets the line number of the variable declaration to the given line
+		 * @param line
+		 */
 		public void setLine(int line) {
 			this.symbolNumber = line;
 		}
+		/**
+		 * returns the list of assignments in a map.
+		 * @return A map where the key is the line number and the string is the assignment
+		 */
 		public Map<Integer, String> getAssignments() {
 			return assignments;
 		}
+		/**
+		 * sets the assignments to the given Map
+		 * @param assignments
+		 */
 		public void setAssignments(Map<Integer, String> assignments) {
 			this.assignments = assignments;
 		}
 		
 		/**
-		 * Returns a String containing the name, type, scope, symbolNumber, and assignments of the Variable
+		 * @return a String containing the name, type, scope, symbolNumber, and assignments of the Variable
 		 */
 		@Override
 		public String toString() {
@@ -598,6 +678,10 @@ public class AdaAnalyzer extends Analyzer{
 		
 	}
 
+	/**
+	 * returns the raw unedited string of the file
+	 * @return returns the file contents in an unedited string
+	 */
 	public String getFileContents() {
 		// TODO Auto-generated method stub
 		return rawCode;

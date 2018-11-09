@@ -3,6 +3,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 /**
+ * CWE: https://cwe.mitre.org/data/definitions/597.html
  * This vulnerability searches for incorrect usage when comparing strings in Java source code.
  * @author Joe Mcilvaine
  */

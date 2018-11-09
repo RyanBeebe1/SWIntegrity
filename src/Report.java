@@ -14,7 +14,7 @@ import java.util.Map.Entry;
 /**
  * This class created the Report text file that has all relevant information about the files that were analyzed
  * 
- * @author Sean Lawton & Jamie Tyler Walder
+ * @author Sean Lawton and Jamie Tyler Walder
  */
 public class Report {
 	
@@ -111,6 +111,7 @@ public class Report {
 	}
 	/**
 	 * adds files to a local list of files
+	 * @param fileNames list of file names that were analyzed
 	 */
 	public static void filesAnalyzed(List<String> fileNames)
 	{

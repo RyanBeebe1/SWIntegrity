@@ -560,42 +560,83 @@ public class JavaAnalyzer extends Analyzer {
 			this.assignments = new HashMap<>();
 		}
 
+		/**
+		 * returns the name of the variable
+		 * @return the name of the variable
+		 */
 		public String getName() {
 			return name;
 		}
 
+		/**
+		 * changes the name of the variable to the passed string
+		 * @param name
+		 */
 		public void setName(String name) {
 			this.name = name;
 		}
 
+		/**
+		 * returns the type of the variable
+		 * @return the type of the variable
+		 */
 		public String getType() {
 			return type;
 		}
 
+		/**
+		 * changes the type of the variable to the passed string
+		 * @param type
+		 */
 		public void setType(String type) {
 			this.type = type;
 		}
 
+		/**
+		 * returns the scope of the current variable
+		 * @return the scope of the current variable
+		 */
 		public String getScope() {
 			return scope;
 		}
 
+		/**
+		 * changes the scope of the variable to the given string
+		 * @param scope
+		 */
 		public void setScope(String scope) {
 			this.scope = scope;
 		}
 
+		/**
+		 * returns the line number of the variables initial declaration. Does NOT return the line number of all
+		 * assignments.
+		 * @return the line number of the variable declaration
+		 */
 		public int getLine() {
 			return lineNumber;
 		}
 
+		/**
+		 * sets the line number of the variable declaration to the given line
+		 * @param line
+		 */
 		public void setLine(int line) {
 			this.lineNumber = line;
 		}
 
+		/**
+		 * returns the list of assignments in a map.
+		 * @return A map where the key is the line number and the string is the assignment
+		 */
 		public HashMap<Integer, String> getAssignments() {
 			return assignments;
 		}
 
+		/**
+		 * sets the assignments to the given Map
+		 * @param assignments
+		 */
 		public void setAssignments(HashMap<Integer, String> assignments) {
 			this.assignments = assignments;
 		}
@@ -648,10 +689,19 @@ public class JavaAnalyzer extends Analyzer {
 		}
 	}
 
+	/**
+	 * returns the individual lines as a value with their line numbers as the key
+	 * @return A Hashmap where the key is a line number and the value is the corresponding line
+	 */
 	public HashMap<Integer, String> getLineToLine() {
 		return lineToLine;
 	}
 
+	/**
+	 * takes a line number and returns all lines leading up to that line
+	 * @param line
+	 * @return a string which contains each line up to the given line number
+	 */
 	public String getUntilLine(int line) {
 		String code = "";
 		for (int i = 0; i <= line; i++) {
@@ -661,6 +711,12 @@ public class JavaAnalyzer extends Analyzer {
 		return code;
 	}
 
+	/**
+	 * Grabs all of the lines of code between two given line numbers
+	 * @param l1 is the first line
+	 * @param l2 is the second line
+	 * @return a string containing each line of code between two given line numbers
+	 */
 	public String getBetweenLines(int l1, int l2) {
 		String temp = "";
 
