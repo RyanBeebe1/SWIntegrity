@@ -43,7 +43,7 @@ public class Report {
 		DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH:mm:ss");
 		LocalDateTime now = LocalDateTime.now();
 		//Titles the report text file to display the time and date in the name
-		String fileName = System.getProperty("user.dir")+"/Reports/" + "report" + dtf2.format(now) + ".txt";
+		String fileName = System.getProperty("user.dir")+"/Reports/" + dtf2.format(now) + ".txt";
 		//Puts the date and time into a format that is more recognizable
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		try
@@ -51,7 +51,7 @@ public class Report {
 			PrintWriter outputStream = new PrintWriter(fileName);//creates the different text lines printed
 			outputStream.println("Software Integrity Tester Vulnerability Report");
 			outputStream.println(" ");
-			outputStream.println("SIT Version 1.0.0");//TODO should be pulled from config file
+			outputStream.println("SIT Version 2.0.0");//TODO should be pulled from config file
 			outputStream.println("Date: " + dtf.format(now));
 			outputStream.println(" ");
 			outputStream.println("Files Analyzed: " + numberOfFiles());
