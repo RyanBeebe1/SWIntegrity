@@ -14,7 +14,7 @@ import java.util.Map.Entry;
 /**
  * This class created the Report text file that has all relevant information about the files that were analyzed
  * 
- * @author Sean Lawton and Jamie Tyler Walder
+ * @author Sean Lawton & Jamie Tyler Walder
  */
 public class Report {
 	
@@ -40,12 +40,12 @@ public class Report {
 		SIT.notifyUser("Saving Results to File...");
 		new File("Reports").mkdirs(); 
 		//acquires the time and date to put in the report text file
-		long time=new Date().getTime();
+		DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH:mm:ss");
+		LocalDateTime now = LocalDateTime.now();
 		//Titles the report text file to display the time and date in the name
-		String fileName = System.getProperty("user.dir")+"/Reports/"+time+"report.txt";
+		String fileName = System.getProperty("user.dir")+"/Reports/" + "report" + dtf2.format(now) + ".txt";
 		//Puts the date and time into a format that is more recognizable
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-		LocalDateTime now = LocalDateTime.now();
 		try
 		{
 			PrintWriter outputStream = new PrintWriter(fileName);//creates the different text lines printed
@@ -111,7 +111,6 @@ public class Report {
 	}
 	/**
 	 * adds files to a local list of files
-	 * @param fileNames list of file names that were analyzed
 	 */
 	public static void filesAnalyzed(List<String> fileNames)
 	{
