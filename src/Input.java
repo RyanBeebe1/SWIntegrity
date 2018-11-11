@@ -676,7 +676,7 @@ public class Input {
 	 */
 	private void analyzeJava() {
 		//notify user of amount of files in list
-		SIT.notifyUser(javaFiles.size() + " Java Files Found");
+		SIT.notifyUser(javaFiles.size() + " Java File(s) Found");
 		
 		//set the analyzer to the appropriate type
 		analyzer = new JavaAnalyzer();
@@ -707,7 +707,7 @@ public class Input {
 	 */
 	private void analyzeAda() {
 		//notify user of amount of files in list
-		SIT.notifyUser(adaFiles.size()+" Ada Files Found");
+		SIT.notifyUser(adaFiles.size()+" Ada File(s) Found");
 		
 		//set the analyzer to the appropriate type
 		analyzer = new AdaAnalyzer();
@@ -740,7 +740,7 @@ public class Input {
 	 */
 	private void analyzeCpp() {
 		//notify user of amount of files in list
-		SIT.notifyUser(cppFiles.size() + " C++ Files Found");
+		SIT.notifyUser(cppFiles.size() + " C++ File(s) Found");
 		
 		//set the analyzer to the appropriate type
 		analyzer= new CppAnalyzer();
