@@ -13,3 +13,4 @@ CWE-597,Use of Wrong Operator in String comparison,JAVA,Low, Use .equals() inste
 CWE-568,Finalize Without Super,JAVA,High,Call super.finalize to prevent unexpeceted bugs caused by overriding finalize,JavaFinalizeVulnerability
 CWE-480,Use of Incorrect Operator,C++,Low,Use Automatic or Manual Static analysis to make sure your equal signs are correct,CppIncorrectOperatorVulnerability
 CWE-467,Use of sizeof on pointer type,C++,Low,Ensure that when using sizeof on a pointer type to include the *.  Otherwise you could have an incorrect buffer size,sizeOfOnPointerCPPVulnerability
+CWE-798,Use of Hard-coded Credentials,JAVA,High,Make sure that the usernames and passwords used are stored in a secure database; never hard code usernames or passwords.  It is too dangerous.,JavaHardCodedCredentialsVulnerability
