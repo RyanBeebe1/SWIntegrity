@@ -15,3 +15,5 @@ CWE-480,Use of Incorrect Operator,C++,Low,Use Automatic or Manual Static analysi
 CWE-467,Use of sizeof on pointer type,C++,Low,Ensure that when using sizeof on a pointer type to include the *.  Otherwise you could have an incorrect buffer size,sizeOfOnPointerCPPVulnerability
 CWE-798,Use of Hard-coded Credentials,JAVA,High,Make sure that the usernames and passwords used are stored in a secure database; never hard code usernames or passwords.  It is too dangerous.,JavaHardCodedCredentialsVulnerability
 CWE-601,URL Redirection to Untrusted Site,JAVA,High,Check for redirect confirmation. If redirected but initially did not reach correct site check return.,JavaUrlRedirectionVulnerability
+CWE-676,Use of Potentially Dangerous Function,C++,High,"Identify a list of prohibited API functions and prohibit developers from using these functions, providing safer alternatives.",CppDangerousFuncVulnerability
+CWE-327,Use of a Broken or Risky Cryptographic Algorithm,C++,High,"Use strong, up-to-date cryptographic algorithms to encrypt that data.",CppRiskyCryptoVulnerability
