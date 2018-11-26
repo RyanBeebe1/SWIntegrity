@@ -14,6 +14,7 @@ import java.util.*;
 
 public class Input {
 
+	private static boolean verbose = false;
 	private Analyzer analyzer;	
 	private List<String> adaFiles; 	//a collection of Ada files
 	private List<String> javaFiles;	//a collection of java files
@@ -50,6 +51,7 @@ public class Input {
 	 */
 	public void processInput(String[] args)
 	{
+		if (verbose)
 		SIT.notifyUser("Verifing Files...");
 		//If no arguments specified, process all files with known extensions
 		//in the current directory
@@ -72,6 +74,9 @@ public class Input {
 					break;
 				case "-c":
 					addCppFilesInDirectory(System.getProperty("user.dir"));
+					break;
+				case "-v":
+					verbose = true;
 					break;
 				case "-r":
 					addFiles(getAllFilesInDirectoryAndSubDirectories(System.getProperty("user.dir")));
@@ -121,6 +126,9 @@ public class Input {
 						break;
 					case "-c":
 						uCPP = true;
+						break;
+					case "-v":
+						verbose = true;
 						break;
 					case "-all":
 						uJava = true;
@@ -660,6 +668,7 @@ public class Input {
 		fileNames.addAll(cppFiles);
 		fileNames.addAll(adaFiles);
 		Report.filesAnalyzed(fileNames);
+		if (verbose)
 		SIT.notifyUser("Files Collected.");
 		if(javaFiles.size()>0)
 			analyzeJava();
@@ -676,6 +685,7 @@ public class Input {
 	 */
 	private void analyzeJava() {
 		//notify user of amount of files in list
+		if (verbose)
 		SIT.notifyUser(javaFiles.size() + " Java File(s) Found");
 		
 		//set the analyzer to the appropriate type
@@ -686,9 +696,10 @@ public class Input {
 		try {
 		    for(String filename : javaFiles) {
 		    	f = new File(filename);
+				if (verbose)
 		    	SIT.notifyUser("Analyzing "+f.getCanonicalPath()+"...");
 			    analyzer.analyze(filename);
-			    
+				if (Input.getVerbose())
 			    SIT.notifyUser(f.getCanonicalPath()+" has been analyzed.");
 		    }
 		}
@@ -717,9 +728,10 @@ public class Input {
 		try {
 		    for(String filename : adaFiles) {
 		    	f = new File(filename);
+				if (verbose)
 		    	SIT.notifyUser("Analyzing "+f.getCanonicalPath()+"...");
 			    analyzer.analyze(filename);
-			    
+				if (Input.getVerbose())
 			    SIT.notifyUser(f.getCanonicalPath()+" has been analyzed.");
 			    //TODO analyze
 		    }
@@ -740,6 +752,7 @@ public class Input {
 	 */
 	private void analyzeCpp() {
 		//notify user of amount of files in list
+		if (verbose)
 		SIT.notifyUser(cppFiles.size() + " C++ File(s) Found");
 		
 		//set the analyzer to the appropriate type
@@ -750,9 +763,10 @@ public class Input {
 		try {   
 		    for(String filename : cppFiles) {
 		    	f = new File(filename);
+				if (verbose)
 		    	SIT.notifyUser("Analyzing "+f.getCanonicalPath()+"...");
 			    analyzer.analyze(filename);
-			    
+			    if (verbose)
 			    SIT.notifyUser(f.getCanonicalPath()+" has been analyzed.");
 			    //TODO analyze
 		    }
@@ -767,5 +781,8 @@ public class Input {
 	}
 	
 
+	public static boolean getVerbose() {
+		return verbose;
+	}
 
 }

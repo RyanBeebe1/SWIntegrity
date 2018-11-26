@@ -298,6 +298,7 @@ public class CppAnalyzer extends Analyzer
 	 */
 	public void extractVariables(String s) 
 	{
+		if (Input.getVerbose())
 		SIT.notifyUser("Extracting Variables");
 		s = s.replace("\\\"", "");
 		//Create an array of all words separated by a space
@@ -599,6 +600,7 @@ public class CppAnalyzer extends Analyzer
 	protected void analyze(String filename) {
 		//Parse the file for its variables
 		parse(filename);
+		if (Input.getVerbose())
 		SIT.notifyUser("Looking For Vulnerabilities");
 		//Accost the CSV file and shake it down for its tasty vulnerabilities
 		try {
@@ -610,6 +612,7 @@ public class CppAnalyzer extends Analyzer
 				String[] fields = config.split(",");	//Split at the comma because CSV
 				if(fields[2].equals("C++"))				//The "language" field must match ADA
 				{
+					if (Input.getVerbose())
 					SIT.notifyUser("Looking For "+fields[1]+"...");
 					List<Integer> lines=callVulnerability(fields[5]);		//Field  is the name of the vulnerability's class
 					if(lines.size()>0) {

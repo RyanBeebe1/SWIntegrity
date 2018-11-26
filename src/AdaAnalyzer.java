@@ -410,6 +410,7 @@ public class AdaAnalyzer extends Analyzer{
 	protected void analyze(String filename) {
 		//Parse the file for its variables
 		parse(filename);
+		if (Input.getVerbose())
 		SIT.notifyUser("Looking For Vulnerabilities");
 		//Accost the CSV file and shake it down for its tasty vulnerabilities
 		try {
@@ -421,6 +422,7 @@ public class AdaAnalyzer extends Analyzer{
 				String[] fields = config.split(",");	//Split at the comma because CSV
 				if(fields[2].equals("ADA"))				//The "language" field must match ADA
 				{
+					if (Input.getVerbose())
 					SIT.notifyUser("Looking For "+fields[1]+"...");
 					List<Integer> lines=callVulnerability(fields[5]);		//Field  is the name of the vulnerability's class
 					if(lines.size()>0) {
