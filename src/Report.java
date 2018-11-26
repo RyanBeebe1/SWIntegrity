@@ -42,8 +42,12 @@ public class Report {
 		//acquires the time and date to put in the report text file
 		DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH:mm:ss");
 		LocalDateTime now = LocalDateTime.now();
+		String time =  dtf2.format(now);
+		time = time.replaceAll(":","");
+		time = time.replaceAll("-","");
+		long realTime = Long.parseLong(time);
 		//Titles the report text file to display the time and date in the name
-		String fileName = System.getProperty("user.dir")+"/Reports/" + dtf2.format(now) + ".txt";
+		String fileName = System.getProperty("user.dir")+"/Reports/" + realTime + ".txt";;
 		//Puts the date and time into a format that is more recognizable
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		try
