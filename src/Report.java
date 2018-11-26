@@ -99,8 +99,15 @@ public class Report {
 			{
 				outputStream.println("	Number of " + e.getKey() + " Occurrences: " + e.getValue());
 			}
-			HashMap<String,Integer> risk = riskNumbers();//prints the number of vulnerabilities at different risk levels 
-			outputStream.println("	High Risk Warnings: " + risk.get("High") + "	Medium Risk Warnings: " + risk.get("Medium") + "	Low Risk Warnings: " + risk.get("Low"));
+			HashMap<String,Integer> risk = riskNumbers();//prints the number of vulnerabilities at different risk levels
+			int high = 0, mid = 0, low = 0;
+			if (risk.get("High") != null)
+				high = risk.get("High");
+			if (risk.get("Medium") != null)
+				mid = risk.get("Medium");
+			if (risk.get("Low") != null)
+				low = risk.get("Low");
+			outputStream.println("	High Risk Warnings: " + high + "	Medium Risk Warnings: " + mid + "	Low Risk Warnings: " + low);
 			outputStream.close(); 
 			SIT.notifyUser("Saved Results to "+fileName);
 		}
