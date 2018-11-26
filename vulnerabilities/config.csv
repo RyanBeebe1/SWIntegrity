@@ -18,3 +18,4 @@ CWE-601,URL Redirection to Untrusted Site,JAVA,High,Check for redirect confirmat
 CWE-676,Use of Potentially Dangerous Function,C++,High,"Identify a list of prohibited API functions and prohibit developers from using these functions, providing safer alternatives.",CppDangerousFuncVulnerability
 CWE-327,Use of a Broken or Risky Cryptographic Algorithm,C++,High,"Use strong, up-to-date cryptographic algorithms to encrypt that data.",CppRiskyCryptoVulnerability
 CWE-580,Improper use of clone method without call to Super,JAVA,Low,"Confirm that whenever the clone method is used, it is done with a call to super for proper performance.",JavaCloneVulnerability
+CWE-120, Classic Buffer Overflow, C++, High, Check the size of a value before placing it in a given buffer, CppClassicBufferOverflow
