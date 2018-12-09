@@ -21,3 +21,4 @@ CWE-580,Improper use of clone method without call to Super,JAVA,Low,"Confirm tha
 CWE-120, Classic Buffer Overflow, C++, High, Check the size of a value before placing it in a given buffer, CppClassicBufferOverflow
 CWE-759, Use of a One-Way Hash without a Salt, C++, High, POTENTIAL WARNING: Make sure that whenever a hash function is used salt is added as extra input., CppUseOfHashWithoutSalt
 CWE-759, Use of a One-Way Hash without a Salt, Java, High, POTENTIAL WARNING: Make sure that whenever a hash function is used salt is added as extra input., JavaUseOfHashWithoutSaltVulnerability
+CWE-22,Improper Limitation of a Pathname to a Restricted Directory,C++,High,POTENTIAL WARNING: Whenever allowing the users to choose a directory confirm that they are not inserting directory changing shortcuts within input.,CppImproperPathTraversalVulnerability
