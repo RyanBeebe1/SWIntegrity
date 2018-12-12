@@ -679,7 +679,7 @@ public class Input {
 		Report.writeReport();
 		//TODO special case for other
 	}
-	
+
 	/**
 	 * Analyzes Java files for vulnerabilities by invoking an Analyzer object
 	 */

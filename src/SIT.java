@@ -28,7 +28,8 @@ public class SIT {
 		long startTime = System.currentTimeMillis();
 		Input input = new Input();
 		input.processInput(args);
-		System.out.println("Runtime in seconds: " + (System.currentTimeMillis() - startTime)/1000);
+		System.out.println("Total vulns found: "+Report.information.size());
+		System.out.println("Runtime in milliseconds: " + (System.currentTimeMillis() - startTime));
 	}
 
 
