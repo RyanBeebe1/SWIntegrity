@@ -2,9 +2,9 @@
 The Software Integrity Tester (SIT) is a static code analysis tool that is able to detect several common software vulnerabilities in Java, C++, and ADA code. 
 
 
-# Getting Started
+### Getting Started
 
-# Clone
+### Clone
 * Clone this repo to your local machine using https://github.com/RyanBeebe1/SWIntegrity.git
 
 
