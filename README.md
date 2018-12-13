@@ -63,8 +63,6 @@ This version of the SIT runs strictly from the command line. It recognizes valid
 | Reliance on Untrusted Inputs in a Security Decision            |   X   |  X  |     | 
 | Use of finalize() Method without super.finalize()              |   X   |     |     |
 
-## Tests
-
 ## Contributing
 
 ## Credits
